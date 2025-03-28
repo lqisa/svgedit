@@ -956,7 +956,7 @@ const dblClickEvent = (evt) => {
  */
 const mouseDownEvent = (evt) => {
   const dataStorage = svgCanvas.getDataStorage()
-  const selectedElements = svgCanvas.getSelectedElements()
+  let selectedElements = svgCanvas.getSelectedElements()
   const zoom = svgCanvas.getZoom()
   const curShape = svgCanvas.getStyle()
   const svgRoot = svgCanvas.getSvgRoot()
@@ -1055,6 +1055,7 @@ const mouseDownEvent = (evt) => {
           svgCanvas.addToSelection([mouseTarget])
           svgCanvas.setJustSelected(mouseTarget)
           svgCanvas.pathActions.clear()
+          selectedElements = svgCanvas.getSelectedElements()
         }
         // else if it's a path, go into pathedit mode in mouseup
 
